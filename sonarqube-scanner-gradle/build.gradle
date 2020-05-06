@@ -11,12 +11,19 @@ version = '1.0'
 sonarqube {
     properties {
         property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
+        properties["sonar.sources"] += sourceSets.custom.allSource.srcDirs
+        properties["sonar.tests"] += sourceSets.integTest.allSource.srcDirs
         property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.exclusions", "**/*Generated.java"  
     }
 }
 
+
 // In this section you declare where to find the dependencies of your project
 repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+      }
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
