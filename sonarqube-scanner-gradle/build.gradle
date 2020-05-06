@@ -11,8 +11,6 @@ version = '1.0'
 sonarqube {
     properties {
         property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
-        properties["sonar.sources"] += sourceSets.custom.allSource.srcDirs
-        properties["sonar.tests"] += sourceSets.integTest.allSource.srcDirs
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.exclusions", "**/*Generated.java"  
     }
